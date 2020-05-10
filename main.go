@@ -16,7 +16,7 @@ var PORT = os.Getenv("PORT")
 
 func checkEnv() {
 	if PORT == "" {
-		PORT = "8081"
+		PORT = "8812"
 	}
 }
 

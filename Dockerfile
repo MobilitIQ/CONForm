@@ -11,5 +11,5 @@ FROM scratch
 WORKDIR /go/src/app
 COPY --from=builder /go/src/app/conform .
 COPY --from=builder /go/src/app/assets ./assets
-EXPOSE 8081
-CMD ["./feelnilvaren"]
+EXPOSE 8812
+CMD ["./conform"]
