@@ -1,14 +1,12 @@
 package main
 
 import (
-	b64 "encoding/base64"
 	"fmt"
+	"github.com/gobuffalo/packr/v2"
 	cache "github.com/victorspringer/http-cache"
 	"github.com/victorspringer/http-cache/adapter/memory"
 	"net/http"
 	"os"
-	"runtime"
-	"strings"
 	"time"
 )
 
