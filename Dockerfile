@@ -1,7 +1,6 @@
 FROM golang:1.12.9 AS builder
 WORKDIR /go/src/app
 COPY . .
-RUN go mod init github.com/ReThinkMobility/CONForm
 RUN go test
 RUN go get github.com/gobuffalo/packr/v2
 RUN go get -u github.com/gobuffalo/packr/v2/packr2
