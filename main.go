@@ -18,20 +18,6 @@ func checkEnv() {
 	}
 }
 
-func CORS(h http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin", "*")
-		w.Header().Set("Access-Control-Allow-Credentials", "true")
-		w.Header().Set("Access-Control-Allow-Methods", "GET, OPTIONS")
-		w.Header().Set("Access-Control-Allow-Headers", "Authorization")
-		if r.Method == "OPTIONS" {
-			return
-		} else {
-			h.ServeHTTP(w, r)
-		}
-	})
-}
-
 func main() {
 
 	checkEnv()
@@ -57,7 +43,7 @@ func main() {
 	fileServer := http.FileServer(box)
 	cached := cacheClient.Middleware(fileServer)
 
-	http.Handle("/", CORS(cached))
+	http.Handle("/", cached)
 
 	if err := http.ListenAndServe(":" + PORT, nil); err != nil {
 		panic(err)
